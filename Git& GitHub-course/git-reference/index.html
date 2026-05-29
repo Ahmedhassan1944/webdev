@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Git & GitHub Complete Learning Reference — Interactive premium educational page for mastering version control." />
+  <meta property="og:title" content="Git & GitHub Complete Guide | LocalSchool" />
+  <meta property="og:description" content="Master Git & GitHub with an interactive visual reference." />
+  <title>Git &amp; GitHub Complete Reference | LocalSchool</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== PARTICLES BACKGROUND ===== -->
+  <div id="particles-bg" aria-hidden="true"></div>
+
+  <!-- ===== SCROLL PROGRESS ===== -->
+  <div id="progress-bar" aria-hidden="true"></div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav id="navbar" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">
+        <span class="logo-icon">🌿</span>
+        <span>Git Reference</span>
+      </a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#lifecycle" class="nav-link">Lifecycle</a></li>
+        <li><a href="#commands" class="nav-link">Commands</a></li>
+        <li><a href="#workflow" class="nav-link">Workflow</a></li>
+        <li><a href="#concepts" class="nav-link">Concepts</a></li>
+        <li><a href="#practice" class="nav-link">Practice</a></li>
+      </ul>
+      <button id="theme-toggle" class="theme-btn" aria-label="Toggle dark/light mode" title="Toggle theme">🌙</button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section id="home" class="hero-section">
+    <div class="hero-bg-grid" aria-hidden="true"></div>
+    <div class="floating-icons" aria-hidden="true">
+      <span class="fi fi-1">⬡</span>
+      <span class="fi fi-2">🌿</span>
+      <span class="fi fi-3">⬢</span>
+      <span class="fi fi-4">◈</span>
+      <span class="fi fi-5">⬡</span>
+      <span class="fi fi-6">🌿</span>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge reveal">
+        <span class="badge-dot"></span>
+        Interactive Learning Platform
+      </div>
+      <h1 class="hero-title reveal">
+        <span class="title-line-1">Git &amp; GitHub</span>
+        <span class="title-line-2 gradient-text">Complete Guide</span>
+      </h1>
+      <p class="hero-typing reveal">
+        <span class="typing-prefix">→ </span>
+        <span id="typing-text"></span>
+        <span class="typing-cursor" aria-hidden="true">|</span>
+      </p>
+      <p class="hero-desc reveal">Master version control from zero to hero. Explore every Git command, workflow, and concept with beautiful interactive references built for modern developers.</p>
+      <div class="hero-ctas reveal">
+        <a href="#lifecycle" class="btn btn-primary">Start Learning <span>→</span></a>
+        <a href="#commands" class="btn btn-outline">View Commands</a>
+      </div>
+      <div class="hero-stats reveal">
+        <div class="stat-card">
+          <span class="stat-num">20+</span>
+          <span class="stat-label">Commands</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num">8</span>
+          <span class="stat-label">Concepts</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num">5</span>
+          <span class="stat-label">Workflows</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <span>Scroll to explore</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- ===== GIT LIFECYCLE SECTION ===== -->
+  <section id="lifecycle" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Visual Overview</span>
+        <h2 class="section-title">Git <span class="gradient-text">Lifecycle</span></h2>
+        <p class="section-desc">Understand how changes move from your editor to the world.</p>
+      </div>
+      <div class="lifecycle-grid">
+        <div class="lifecycle-card reveal" data-stage="1">
+          <div class="lc-icon-wrap" style="--clr:#10b981">🗂️</div>
+          <div class="lc-content">
+            <h3>Working Directory</h3>
+            <p>Your local files where you edit code. Changes here are <em>untracked</em>.</p>
+          </div>
+          <div class="lc-badge" style="--clr:#10b981">Untracked</div>
+        </div>
+        <div class="lifecycle-arrow reveal" aria-hidden="true">
+          <span class="arrow-cmd">git add</span>
+          <div class="arrow-line"><div class="arrow-head">→</div></div>
+        </div>
+        <div class="lifecycle-card reveal" data-stage="2">
+          <div class="lc-icon-wrap" style="--clr:#3b82f6">📋</div>
+          <div class="lc-content">
+            <h3>Staging Area</h3>
+            <p>Files added to the index. Ready to be committed as the next snapshot.</p>
+          </div>
+          <div class="lc-badge" style="--clr:#3b82f6">Staged</div>
+        </div>
+        <div class="lifecycle-arrow reveal" aria-hidden="true">
+          <span class="arrow-cmd">git commit</span>
+          <div class="arrow-line"><div class="arrow-head">→</div></div>
+        </div>
+        <div class="lifecycle-card reveal" data-stage="3">
+          <div class="lc-icon-wrap" style="--clr:#8b5cf6">💾</div>
+          <div class="lc-content">
+            <h3>Local Repository</h3>
+            <p>The <code>.git</code> folder. A complete history of every commit you've made.</p>
+          </div>
+          <div class="lc-badge" style="--clr:#8b5cf6">Committed</div>
+        </div>
+        <div class="lifecycle-arrow reveal" aria-hidden="true">
+          <span class="arrow-cmd">git push</span>
+          <div class="arrow-line"><div class="arrow-head">→</div></div>
+        </div>
+        <div class="lifecycle-card reveal" data-stage="4">
+          <div class="lc-icon-wrap" style="--clr:#00f5ff">☁️</div>
+          <div class="lc-content">
+            <h3>Remote Repository</h3>
+            <p>GitHub, GitLab, etc. The shared, cloud-hosted version of your project.</p>
+          </div>
+          <div class="lc-badge" style="--clr:#00f5ff">Remote</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COMMANDS SECTION ===== -->
+  <section id="commands" class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Reference</span>
+        <h2 class="section-title">Commands <span class="gradient-text">Reference</span></h2>
+        <p class="section-desc">Every essential Git command explained with examples.</p>
+      </div>
+
+      <!-- Search + Filter -->
+      <div class="cmd-toolbar reveal">
+        <div class="cmd-search-wrap">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="cmd-search" placeholder="Search commands..." autocomplete="off" aria-label="Search commands" />
+        </div>
+        <div class="cmd-filters" role="group" aria-label="Filter commands by category">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="Setup">Setup</button>
+          <button class="filter-btn" data-filter="Basic">Basic</button>
+          <button class="filter-btn" data-filter="Branching">Branching</button>
+          <button class="filter-btn" data-filter="Remote">Remote</button>
+          <button class="filter-btn" data-filter="History">History</button>
+        </div>
+      </div>
+
+      <!-- Command Cards Grid -->
+      <div class="commands-grid" id="commands-grid">
+
+        <!-- SETUP -->
+        <div class="cmd-card reveal" data-category="Setup" data-cmd="git init">
+          <div class="cmd-card-header">
+            <span class="cmd-cat-badge" style="--cat-clr:#10b981">Setup</span>
+            <button class="copy-btn" aria-label="Copy git init command" data-copy="git init&#10;# Creates a .git folder in your project">⧉ Copy</button>
+          </div>
+          <div class="cmd-title-row">
+            <span class="cmd-icon">🚀</span>
+            <h3 class="cmd-name">git init</h3>
+          </div>
+          <p class="cmd-desc">Initialize a new local repository in the current directory.</p>
+          <pre class="cmd-code"><code><span class="c-cmd">git init</span>
+<span class="c-cmt"># Creates a .git folder in your project</span></code></pre>
+        </div>
+
+        <div class="cmd-card reveal" data-category="Setup" data-cmd="git config">
+          <div class="cmd-card-header">
+            <span class="cmd-cat-badge" style="--cat-clr:#10b981">Setup</span>
+            <button class="copy-btn" aria-label="Copy git config command" data-copy='git config --global user.name "Your Name"&#10;git config --global user.email "you@email.com"'>⧉ Copy</button>
+          </div>
+          <div class="cmd-title-row">
+            <span class="cmd-icon">⚙️</span>
+            <h3 class="cmd-name">git config</h3>
+          </div>
+          <p class="cmd-desc">Set user identity and global preferences for Git.</p>
+          <pre class="cmd-code"><code><span class="c-cmd">git config</span> --global user.name <span class="c-str">"Your Name"</span>
+<span class="c-cmd">git config</span> --global user.email <span class="c-str">"you@email.com"</span></code></pre>
+        </div>
+
+        <div class="cmd-card reveal" data-category="Setup" data-cmd="git clone">
+          <div class="cmd-card-header">
+            <span class="cmd-cat-badge" style="--cat-clr:#10b981">Setup</span>
+            <button class="copy-btn" aria-label="Copy git clone command" data-copy="git clone https://github.com/user/repo.git">⧉ Copy</button>
+          </div>
+          <div class="cmd-title-row">
+            <span class="cmd-icon">📥</span>
+            <h3 class="cmd-name">git clone</h3>
+          </div>
+          <p class="cmd-desc">Clone a remote repository to your local machine.</p>
+          <pre class="cmd-code"><code><span class="c-cmd">git clone</span> https://github.com/user/repo.git
+<span class="c-cmd">git clone</span> git@github.com:user/repo.git</code></pre>
+        </div>
+
+        <!-- BASIC -->
+        <div class="cmd-card reveal" data-category="Basic" data-cmd="git status">
+          <div class="cmd-card-header">
+            <span class="cmd-cat-badge" style="--cat-clr:#3b82f6">Basic</span>
+            <button class="copy-btn" aria-label="Copy git status command" data-copy="git status">⧉ Copy</button>
+          </div>
+          <div class="cmd-title-row">
+            <span class="cmd-icon">📊</span>
+            <h3 class="cmd-name">git status</h3>
+          </div>
+          <p class="cmd-desc">Show the status of your working directory and staging area.</p>
+          <pre class="cmd-code"><code><span class="c-cmd">git status</span>
+<span class="c-cmd">git status</span> -s  <span class="c-cmt"># Short format</span></code></pre>
+        </div>
+
+        <div class="cmd-card reveal" data-category="Basic" data-cmd="git add">
+          <div class="cmd-card-header">
+            <span class="cmd-cat-badge" style="--cat-clr:#3b82f6">Basic</span>
+            <button class="copy-btn" aria-label="Copy git add command" data-copy="git add .">⧉ Copy</button>
+          </div>
+          <div class="cmd-title-row">
+            <span class="cmd-icon">➕</span>
+            <h3 class="cmd-name">git add</h3>
+          </div>
+          <p class="cmd-desc">Add file changes to the staging area for the next commit.</p>
+          <pre class="cmd-code"><code><span class="c-cmd">git add</span> file.txt      <span class="c-cmt"># Single file</span>
+<span class="c-cmd">git add</span> .             <span class="c-cmt"># All changes</span>
+<span class="c-cmd">git add</span> -p            <span class="c-cmt"># Interactive</span></code></pre>
+        </div>
+
+        <div class="cmd-card reveal" data-category="Basic" data-cmd="git commit">
+          <div class="cmd-card-header">
+            <span class="cmd-cat-badge" style="--cat-clr:#3b82f6">Basic</span>
+            <button class="copy-btn" aria-label="Copy git commit command" data-copy='git commit -m "your message"'>⧉ Copy</button>
+          </div>
+          <div class="cmd-title-row">
+            <span class="cmd-icon">💾</span>
+            <h3 class="cmd-name">git commit</h3>
+          </div>
+          <p class="cmd-desc">Save staged changes as a permanent snapshot in history.</p>
+          <pre class="cmd-code"><code><span class="c-cmd">git commit</span> -m <span class="c-str">"message"</span>
+<span class="c-cmd">git commit</span> -am <span class="c-str">"msg"</span>  <span class="c-cmt"># Add + commit</span></code></pre>
+        </div>
+
+        <div class="cmd-card reveal" data-category="Basic" data-cmd="git restore">
+          <div class="cmd-card-header">
+            <span class="cmd-cat-badge" style="--cat-clr:#3b82f6">Basic</span>
+            <button class="copy-btn" aria-label="Copy git restore command" data-copy="git restore file.txt">⧉ Copy</button>
+          </div>
+          <div class="cmd-title-row">
+            <span class="cmd-icon">↩️</span>
+            <h3 class="cmd-name">git restore</h3>
+          </div>
+          <p class="cmd-desc">Discard changes in the working directory or unstage files.</p>
+          <pre class="cmd-code"><code><span class="c-cmd">git restore</span> file.txt      <span class="c-cmt"># Discard changes</span>
+<span class="c-cmd">git restore</span> --staged file  <span class="c-cmt"># Unstage file</span></code></pre>
+        </div>
+
+        <!-- BRANCHING -->
+        <div class="cmd-card reveal" data-category="Branching" data-cmd="git branch">
+          <div class="cmd-card-header">
+            <span class="cmd-cat-badge" style="--cat-clr:#8b5cf6">Branching</span>
+            <button class="copy-btn" aria-label="Copy git branch command" data-copy="git branch">⧉ Copy</button>
+          </div>
+          <div class="cmd-title-row">
+            <span class="cmd-icon">🌿</span>
+            <h3 class="cmd-name">git branch</h3>
+          </div>
+          <p class="cmd-desc">List, create, or delete branches in your repository.</p>
+          <pre class="cmd-code"><code><span class="c-cmd">git branch</span>            <span class="c-cmt"># List branches</span>
+<span class="c-cmd">git branch</span> new-feat   <span class="c-cmt"># Create branch</span>
+<span class="c-cmd">git branch</span> -d old     <span class="c-cmt"># Delete branch</span></code></pre>
+        </div>
+
+        <div class="cmd-card reveal" data-category="Branching" data-cmd="git checkout">
+          <div class="cmd-card-header">
+            <span class="cmd-cat-badge" style="--cat-clr:#8b5cf6">Branching</span>
+            <button class="copy-btn" aria-label="Copy git checkout command" data-copy="git checkout -b new-feature">⧉ Copy</button>
+          </div>
+          <div class="cmd-title-row">
+            <span class="cmd-icon">🔀</span>
+            <h3 class="cmd-name">git checkout</h3>
+          </div>
+          <p class="cmd-desc">Switch branches or restore working tree files.</p>
+          <pre class="cmd-code"><code><span class="c-cmd">git checkout</span> main
+<span class="c-cmd">git checkout</span> -b new-feature  <span class="c-cmt"># Create & switch</span></code></pre>
+        </div>
+
+        <div class="cmd-card reveal" data-category="Branching" data-cmd="git merge">
+          <div class="cmd-card-header">
+            <span class="cmd-cat-badge" style="--cat-clr:#8b5cf6">Branching</span>
+            <button class="copy-btn" aria-label="Copy git merge command" data-copy="git merge feature-branch">⧉ Copy</button>
+          </div>
+          <div class="cmd-title-row">
+            <span class="cmd-icon">🔗</span>
+            <h3 class="cmd-name">git merge</h3>
+          </div>
+          <p class="cmd-desc">Integrate changes from one branch into the current branch.</p>
+          <pre class="cmd-code"><code><span class="c-cmd">git checkout</span> main
+<span class="c-cmd">git merge</span> feature-branch</code></pre>
+        </div>
+
+        <div class="cmd-card reveal" data-category="Branching" data-cmd="git stash">
+          <div class="cmd-card-header">
+            <span class="cmd-cat-badge" style="--cat-clr:#8b5cf6">Branching</span>
+            <button class="copy-btn" aria-label="Copy git stash command" data-copy="git stash">⧉ Copy</button>
+          </div>
+          <div class="cmd-title-row">
+            <span class="cmd-icon">📦</span>
+            <h3 class="cmd-name">git stash</h3>
+          </div>
+          <p class="cmd-desc">Temporarily shelve changes to switch context quickly.</p>
+          <pre class="cmd-code"><code><span class="c-cmd">git stash</span>             <span class="c-cmt"># Save changes</span>
+<span class="c-cmd">git stash</span> pop         <span class="c-cmt"># Restore changes</span>
+<span class="c-cmd">git stash</span> list        <span class="c-cmt"># View stashes</span></code></pre>
+        </div>
+
+        <div class="cmd-card reveal" data-category="Branching" data-cmd="git rebase">
+          <div class="cmd-card-header">
+            <span class="cmd-cat-badge" style="--cat-clr:#8b5cf6">Branching</span>
+            <button class="copy-btn" aria-label="Copy git rebase command" data-copy="git rebase main">⧉ Copy</button>
+          </div>
+          <div class="cmd-title-row">
+            <span class="cmd-icon">🔄</span>
+            <h3 class="cmd-name">git rebase</h3>
+          </div>
+          <p class="cmd-desc">Reapply commits on top of another base branch.</p>
+          <pre class="cmd-code"><code><span class="c-cmd">git rebase</span> main
+<span class="c-cmd">git rebase</span> -i HEAD~3   <span class="c-cmt"># Interactive</span></code></pre>
+        </div>
+
+        <!-- REMOTE -->
+        <div class="cmd-card reveal" data-category="Remote" data-cmd="git remote">
+          <div class="cmd-card-header">
+            <span class="cmd-cat-badge" style="--cat-clr:#00f5ff">Remote</span>
+            <button class="copy-btn" aria-label="Copy git remote command" data-copy="git remote -v">⧉ Copy</button>
+          </div>
+          <div class="cmd-title-row">
+            <span class="cmd-icon">🌐</span>
+            <h3 class="cmd-name">git remote</h3>
+          </div>
+          <p class="cmd-desc">Manage connections to remote repositories.</p>
+          <pre class="cmd-code"><code><span class="c-cmd">git remote</span> -v                  <span class="c-cmt"># List remotes</span>
+<span class="c-cmd">git remote add</span> origin &lt;url&gt;   <span class="c-cmt"># Add remote</span>
+<span class="c-cmd">git remote remove</span> origin       <span class="c-cmt"># Remove</span></code></pre>
+        </div>
+
+        <div class="cmd-card reveal" data-category="Remote" data-cmd="git push">
+          <div class="cmd-card-header">
+            <span class="cmd-cat-badge" style="--cat-clr:#00f5ff">Remote</span>
+            <button class="copy-btn" aria-label="Copy git push command" data-copy="git push origin main">⧉ Copy</button>
+          </div>
+          <div class="cmd-title-row">
+            <span class="cmd-icon">⬆️</span>
+            <h3 class="cmd-name">git push</h3>
+          </div>
+          <p class="cmd-desc">Upload local commits to the remote repository on GitHub.</p>
+          <pre class="cmd-code"><code><span class="c-cmd">git push</span> origin main
+<span class="c-cmd">git push</span> -u origin main    <span class="c-cmt"># Set upstream</span>
+<span class="c-cmd">git push</span> --force           <span class="c-cmt"># Force push</span></code></pre>
+        </div>
+
+        <div class="cmd-card reveal" data-category="Remote" data-cmd="git pull">
+          <div class="cmd-card-header">
+            <span class="cmd-cat-badge" style="--cat-clr:#00f5ff">Remote</span>
+            <button class="copy-btn" aria-label="Copy git pull command" data-copy="git pull origin main">⧉ Copy</button>
+          </div>
+          <div class="cmd-title-row">
+            <span class="cmd-icon">⬇️</span>
+            <h3 class="cmd-name">git pull</h3>
+          </div>
+          <p class="cmd-desc">Fetch and integrate changes from a remote repository.</p>
+          <pre class="cmd-code"><code><span class="c-cmd">git pull</span> origin main
+<span class="c-cmd">git pull</span> --rebase origin main</code></pre>
+        </div>
+
+        <div class="cmd-card reveal" data-category="Remote" data-cmd="git fetch">
+          <div class="cmd-card-header">
+            <span class="cmd-cat-badge" style="--cat-clr:#00f5ff">Remote</span>
+            <button class="copy-btn" aria-label="Copy git fetch command" data-copy="git fetch origin">⧉ Copy</button>
+          </div>
+          <div class="cmd-title-row">
+            <span class="cmd-icon">📡</span>
+            <h3 class="cmd-name">git fetch</h3>
+          </div>
+          <p class="cmd-desc">Download objects from remote without merging them.</p>
+          <pre class="cmd-code"><code><span class="c-cmd">git fetch</span> origin
+<span class="c-cmd">git fetch</span> --all</code></pre>
+        </div>
+
+        <!-- HISTORY -->
+        <div class="cmd-card reveal" data-category="History" data-cmd="git log">
+          <div class="cmd-card-header">
+            <span class="cmd-cat-badge" style="--cat-clr:#ec4899">History</span>
+            <button class="copy-btn" aria-label="Copy git log command" data-copy="git log --oneline --graph">⧉ Copy</button>
+          </div>
+          <div class="cmd-title-row">
+            <span class="cmd-icon">📜</span>
+            <h3 class="cmd-name">git log</h3>
+          </div>
+          <p class="cmd-desc">View the full commit history of the repository.</p>
+          <pre class="cmd-code"><code><span class="c-cmd">git log</span>
+<span class="c-cmd">git log</span> --oneline --graph
+<span class="c-cmd">git log</span> -n 5</code></pre>
+        </div>
+
+        <div class="cmd-card reveal" data-category="History" data-cmd="git diff">
+          <div class="cmd-card-header">
+            <span class="cmd-cat-badge" style="--cat-clr:#ec4899">History</span>
+            <button class="copy-btn" aria-label="Copy git diff command" data-copy="git diff --staged">⧉ Copy</button>
+          </div>
+          <div class="cmd-title-row">
+            <span class="cmd-icon">🔍</span>
+            <h3 class="cmd-name">git diff</h3>
+          </div>
+          <p class="cmd-desc">Show differences between commits, branches, or working tree.</p>
+          <pre class="cmd-code"><code><span class="c-cmd">git diff</span>              <span class="c-cmt"># Unstaged changes</span>
+<span class="c-cmd">git diff</span> --staged     <span class="c-cmt"># Staged changes</span>
+<span class="c-cmd">git diff</span> HEAD~1 HEAD  <span class="c-cmt"># Between commits</span></code></pre>
+        </div>
+
+        <div class="cmd-card reveal" data-category="History" data-cmd="git reset">
+          <div class="cmd-card-header">
+            <span class="cmd-cat-badge" style="--cat-clr:#ec4899">History</span>
+            <button class="copy-btn" aria-label="Copy git reset command" data-copy="git reset --soft HEAD~1">⧉ Copy</button>
+          </div>
+          <div class="cmd-title-row">
+            <span class="cmd-icon">⏪</span>
+            <h3 class="cmd-name">git reset</h3>
+          </div>
+          <p class="cmd-desc">Move HEAD to a previous commit, optionally modifying index.</p>
+          <pre class="cmd-code"><code><span class="c-cmd">git reset</span> --soft HEAD~1  <span class="c-cmt"># Keep staged</span>
+<span class="c-cmd">git reset</span> --hard HEAD~1  <span class="c-cmt"># Discard all</span></code></pre>
+        </div>
+
+        <div class="cmd-card reveal" data-category="History" data-cmd="git tag">
+          <div class="cmd-card-header">
+            <span class="cmd-cat-badge" style="--cat-clr:#ec4899">History</span>
+            <button class="copy-btn" aria-label="Copy git tag command" data-copy='git tag -a v1.0.0 -m "Release"'>⧉ Copy</button>
+          </div>
+          <div class="cmd-title-row">
+            <span class="cmd-icon">🏷️</span>
+            <h3 class="cmd-name">git tag</h3>
+          </div>
+          <p class="cmd-desc">Create, list, or delete tags to mark release points.</p>
+          <pre class="cmd-code"><code><span class="c-cmd">git tag</span> v1.0.0
+<span class="c-cmd">git tag</span> -a v1.0.0 -m <span class="c-str">"Release"</span>
+<span class="c-cmd">git push</span> origin --tags</code></pre>
+        </div>
+
+      </div><!-- /commands-grid -->
+      <p class="no-results" id="no-results" style="display:none;">No commands found. Try a different search.</p>
+    </div>
+  </section>
+
+  <!-- ===== WORKFLOW TIMELINE SECTION ===== -->
+  <section id="workflow" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Step by Step</span>
+        <h2 class="section-title">Git <span class="gradient-text">Workflow</span></h2>
+        <p class="section-desc">The standard flow from editing to publishing on GitHub.</p>
+      </div>
+      <div class="timeline-wrap">
+        <div class="timeline-line" aria-hidden="true"></div>
+        <div class="timeline-steps">
+          <div class="timeline-step reveal">
+            <div class="step-marker"><span>1</span></div>
+            <div class="step-card">
+              <div class="step-icon">✏️</div>
+              <h3>Edit</h3>
+              <p>Modify files in your working directory with your code editor.</p>
+              <div class="step-tag">Working Directory</div>
+            </div>
+          </div>
+          <div class="timeline-step reveal">
+            <div class="step-marker"><span>2</span></div>
+            <div class="step-card">
+              <div class="step-icon">➕</div>
+              <h3>Stage</h3>
+              <p>Select which changes to include in the next commit.</p>
+              <div class="step-tag code-tag">git add .</div>
+            </div>
+          </div>
+          <div class="timeline-step reveal">
+            <div class="step-marker"><span>3</span></div>
+            <div class="step-card">
+              <div class="step-icon">💾</div>
+              <h3>Commit</h3>
+              <p>Save a permanent snapshot of staged changes with a message.</p>
+              <div class="step-tag code-tag">git commit -m "msg"</div>
+            </div>
+          </div>
+          <div class="timeline-step reveal">
+            <div class="step-marker"><span>4</span></div>
+            <div class="step-card">
+              <div class="step-icon">⬆️</div>
+              <h3>Push</h3>
+              <p>Upload your commits to the remote repository on GitHub.</p>
+              <div class="step-tag code-tag">git push origin main</div>
+            </div>
+          </div>
+          <div class="timeline-step reveal">
+            <div class="step-marker"><span>5</span></div>
+            <div class="step-card">
+              <div class="step-icon">🐙</div>
+              <h3>GitHub</h3>
+              <p>Your changes are now live, visible, and ready for collaboration!</p>
+              <div class="step-tag">Remote Repository</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONCEPTS SECTION ===== -->
+  <section id="concepts" class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Fundamentals</span>
+        <h2 class="section-title">Core <span class="gradient-text">Concepts</span></h2>
+        <p class="section-desc">The essential vocabulary every developer needs to master Git.</p>
+      </div>
+      <div class="concepts-grid">
+        <div class="concept-card reveal" style="--acc:#10b981">
+          <div class="concept-icon-wrap"><span>📁</span></div>
+          <h3>Working Directory</h3>
+          <p>The folder on your computer where you write and edit code. Files here are either <em>untracked</em> or <em>modified</em>.</p>
+        </div>
+        <div class="concept-card reveal" style="--acc:#3b82f6">
+          <div class="concept-icon-wrap"><span>📋</span></div>
+          <h3>Staging Area</h3>
+          <p>Also called the "index". A preparation zone — files you've <code>git add</code>ed live here, waiting for the next commit.</p>
+        </div>
+        <div class="concept-card reveal" style="--acc:#8b5cf6">
+          <div class="concept-icon-wrap"><span>💾</span></div>
+          <h3>Local Repository</h3>
+          <p>The <code>.git</code> hidden folder inside your project. It holds the complete history of every commit ever made.</p>
+        </div>
+        <div class="concept-card reveal" style="--acc:#00f5ff">
+          <div class="concept-icon-wrap"><span>☁️</span></div>
+          <h3>Remote Repository</h3>
+          <p>A hosted version of your project (GitHub, GitLab, Bitbucket). Shared with collaborators worldwide.</p>
+        </div>
+        <div class="concept-card reveal" style="--acc:#10b981">
+          <div class="concept-icon-wrap"><span>🌿</span></div>
+          <h3>Branch</h3>
+          <p>A parallel version of your codebase. <code>main</code> is the default. Create branches to work on features safely.</p>
+        </div>
+        <div class="concept-card reveal" style="--acc:#ec4899">
+          <div class="concept-icon-wrap"><span>📸</span></div>
+          <h3>Commit</h3>
+          <p>A timestamped snapshot of staged changes. Commits form a permanent, immutable chain — the project timeline.</p>
+        </div>
+        <div class="concept-card reveal" style="--acc:#f59e0b">
+          <div class="concept-icon-wrap"><span>🔗</span></div>
+          <h3>Merge</h3>
+          <p>Combine changes from one branch into another. Git auto-merges when possible; conflicts require manual resolution.</p>
+        </div>
+        <div class="concept-card reveal" style="--acc:#8b5cf6">
+          <div class="concept-icon-wrap"><span>🔄</span></div>
+          <h3>Pull Request</h3>
+          <p>A GitHub feature to propose merging your branch into the main codebase. Enables team code review and discussion.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COLLABORATION SECTION ===== -->
+  <section id="collaboration" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Team Workflow</span>
+        <h2 class="section-title">GitHub <span class="gradient-text">Collaboration</span></h2>
+        <p class="section-desc">How real teams work together using Git and GitHub.</p>
+      </div>
+      <div class="collab-grid">
+        <div class="collab-flow reveal">
+          <h3 class="flow-title">🧑‍💻 Solo Workflow</h3>
+          <div class="flow-steps">
+            <div class="flow-step">
+              <span class="fs-icon">🚀</span>
+              <span class="fs-label">git init / clone</span>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+              <span class="fs-icon">✏️</span>
+              <span class="fs-label">Edit code</span>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+              <span class="fs-icon">➕</span>
+              <span class="fs-label">git add .</span>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+              <span class="fs-icon">💾</span>
+              <span class="fs-label">git commit -m</span>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+              <span class="fs-icon">⬆️</span>
+              <span class="fs-label">git push</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="collab-tips reveal">
+          <h3 class="flow-title">💡 Best Practices</h3>
+          <div class="tip-list">
+            <div class="tip-item">
+              <span class="tip-icon">✅</span>
+              <p>Write clear, descriptive commit messages</p>
+            </div>
+            <div class="tip-item">
+              <span class="tip-icon">✅</span>
+              <p>Commit small, focused changes frequently</p>
+            </div>
+            <div class="tip-item">
+              <span class="tip-icon">✅</span>
+              <p>Always pull before you push to avoid conflicts</p>
+            </div>
+            <div class="tip-item">
+              <span class="tip-icon">✅</span>
+              <p>Use branches for every new feature or bug fix</p>
+            </div>
+            <div class="tip-item">
+              <span class="tip-icon">✅</span>
+              <p>Never commit sensitive data or secrets</p>
+            </div>
+            <div class="tip-item">
+              <span class="tip-icon">✅</span>
+              <p>Use <code>.gitignore</code> to exclude unnecessary files</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="collab-flow reveal">
+          <h3 class="flow-title">👥 Team Workflow</h3>
+          <div class="flow-steps">
+            <div class="flow-step">
+              <span class="fs-icon">🍴</span>
+              <span class="fs-label">Fork / Clone repo</span>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+              <span class="fs-icon">🌿</span>
+              <span class="fs-label">git checkout -b feature</span>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+              <span class="fs-icon">💾</span>
+              <span class="fs-label">Commit changes</span>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+              <span class="fs-icon">⬆️</span>
+              <span class="fs-label">Push branch</span>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step">
+              <span class="fs-icon">🔄</span>
+              <span class="fs-label">Open Pull Request</span>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-step highlight-step">
+              <span class="fs-icon">✅</span>
+              <span class="fs-label">Review &amp; Merge</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRACTICE TERMINAL SECTION ===== -->
+  <section id="practice" class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Hands On</span>
+        <h2 class="section-title">Interactive <span class="gradient-text">Practice</span></h2>
+        <p class="section-desc">Click the buttons to simulate real Git commands in action.</p>
+      </div>
+      <div class="terminal-wrapper reveal">
+        <!-- Terminal Window -->
+        <div class="terminal-window">
+          <div class="terminal-titlebar">
+            <div class="term-dots">
+              <span class="td td-red"></span>
+              <span class="td td-yellow"></span>
+              <span class="td td-green"></span>
+            </div>
+            <span class="term-title">bash — git-practice</span>
+            <button class="term-clear" id="term-clear" title="Clear terminal">⌫ Clear</button>
+          </div>
+          <div class="terminal-body" id="terminal-output" aria-live="polite" aria-label="Terminal output">
+            <div class="term-line">
+              <span class="term-green">git-practice</span>
+              <span class="term-white"> on </span>
+              <span class="term-cyan">🌿 main</span>
+              <span class="term-white"> ready</span>
+            </div>
+            <div class="term-line term-muted">Click a button below to simulate a Git command...</div>
+            <div class="term-line">&nbsp;</div>
+          </div>
+          <div class="terminal-prompt-line" aria-hidden="true">
+            <span class="prompt-symbol">$</span>
+            <span class="prompt-cursor" id="prompt-cursor">_</span>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="terminal-actions">
+          <button class="term-btn" data-cmd="git init" style="--btn-clr:#10b981">
+            <span class="tb-icon">🚀</span> git init
+          </button>
+          <button class="term-btn" data-cmd="git status" style="--btn-clr:#f59e0b">
+            <span class="tb-icon">📊</span> git status
+          </button>
+          <button class="term-btn" data-cmd="git add" style="--btn-clr:#00f5ff">
+            <span class="tb-icon">➕</span> git add .
+          </button>
+          <button class="term-btn" data-cmd="git commit" style="--btn-clr:#8b5cf6">
+            <span class="tb-icon">💾</span> git commit
+          </button>
+          <button class="term-btn" data-cmd="git push" style="--btn-clr:#3b82f6">
+            <span class="tb-icon">⬆️</span> git push
+          </button>
+          <button class="term-btn" data-cmd="git log" style="--btn-clr:#ec4899">
+            <span class="tb-icon">📜</span> git log
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="footer-glow" aria-hidden="true"></div>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">🌿 Git Reference</div>
+          <p>A premium interactive learning resource for mastering Git &amp; GitHub — part of the LocalSchool offline learning platform.</p>
+          <div class="social-links">
+            <a href="#" class="social-btn" aria-label="GitHub" title="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="Twitter" title="Twitter">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="LinkedIn" title="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Learn</h4>
+          <ul>
+            <li><a href="#lifecycle">Git Lifecycle</a></li>
+            <li><a href="#workflow">Workflow</a></li>
+            <li><a href="#concepts">Core Concepts</a></li>
+            <li><a href="#collaboration">Collaboration</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Commands</h4>
+          <ul>
+            <li><a href="#commands">git init</a></li>
+            <li><a href="#commands">git commit</a></li>
+            <li><a href="#commands">git branch</a></li>
+            <li><a href="#commands">git push</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#practice">Practice Terminal</a></li>
+            <li><a href="https://git-scm.com/doc" target="_blank" rel="noopener">Official Docs ↗</a></li>
+            <li><a href="https://github.com" target="_blank" rel="noopener">GitHub ↗</a></li>
+            <li><a href="https://learngitbranching.js.org" target="_blank" rel="noopener">Learn Branching ↗</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 LocalSchool — Git &amp; GitHub Reference. Built for offline learning.</p>
+        <p class="footer-made">Made with 💙 for developers</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== BACK TO TOP ===== -->
+  <button id="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
+
+  <!-- ===== COPY TOAST ===== -->
+  <div id="copy-toast" role="status" aria-live="polite">✓ Copied!</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
