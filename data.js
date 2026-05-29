@@ -369,4 +369,22 @@
             { id: 'git-20', title: '20 - The End And Advices', file: '[Arabic] Learn Git _ GitHub _20 - The End And Advices(720P_HD).mp4', duration: '00:02:37' }
         ]
     }
+    ,
+    {
+        id: 'cmd',
+        title: 'Command Line Course',
+        icon: 'bx bx-terminal',
+        color: '#4caf50',
+        folder: 'cmd-course',
+        lessons: [
+            { id: 'cmd-01', title: '01 - Intro and What_s Shell_ Terminal_ CMD', file: '[Arabic] Learn Command Line _01 - Intro and What_s Shell_ Terminal_ CMD(720P_HD).mp4', duration: '00:13:41' },
+            { id: 'cmd-02', title: '02 - Choosing Terminal And Test Commands', file: '[Arabic] Learn Command Line _02 - Choosing Terminal And Test Commands(720P_HD).mp4', duration: '00:06:30' },
+            { id: 'cmd-03', title: '03 - Directories And Files Part 1', file: '[Arabic] Learn Command Line _03 - Directories And Files Part 1(720P_HD).mp4', duration: '00:07:07' },
+            { id: 'cmd-04', title: '04 - Directories And Files Part 2', file: '[Arabic] Learn Command Line _04 - Directories And Files Part 2(720P_HD).mp4', duration: '00:10:26' },
+            { id: 'cmd-05', title: '05 - Cat And Echo', file: '[Arabic] Learn Command Line _05 - Cat And Echo(720P_HD).mp4', duration: '00:07:07' },
+            { id: 'cmd-06', title: '06 - Grep With Examples', file: '[Arabic] Learn Command Line _06 - Grep With Examples(720P_HD).mp4', duration: '00:06:37' },
+            { id: 'cmd-07', title: '07 - Command Line Secrets Part 1', file: '[Arabic] Learn Command Line _07 - Command Line Secrets Part 1(720P_HD).mp4', duration: '00:06:38' },
+            { id: 'cmd-08', title: '08 - Command Line Secrets Part 2 And Outro', file: '[Arabic] Learn Command Line _08 - Command Line Secrets Part 2 And Outro(720P_HD).mp4', duration: '00:09:28' }
+        ]
+    }
 ];
