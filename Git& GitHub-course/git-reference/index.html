@@ -203,11 +203,24 @@
             <span class="cmd-icon">⚙️</span>
             <h3 class="cmd-name">git config</h3>
           </div>
-          <p class="cmd-desc">Set user identity and global preferences for Git.</p>
+          <p class="cmd-desc">Set user identity and global preferences for Git. Additionally, edit the global config with <code>git config --global --edit</code> – سوف يدخل ال vim. اضغط i لتجربة إدخال البيانات، أدخل البيانات التي تريدها، ثم اضغط :wq! للخروج من هذا الوضع.</p>
           <pre class="cmd-code"><code><span class="c-cmd">git config</span> --global user.name <span class="c-str">"Your Name"</span>
 <span class="c-cmd">git config</span> --global user.email <span class="c-str">"you@email.com"</span></code></pre>
         </div>
 
+        <div class="cmd-card reveal" data-category="Setup" data-cmd="git config --global --edit">
+          <div class="cmd-card-header">
+            <span class="cmd-cat-badge" style="--cat-clr:#10b981">Setup</span>
+            <button class="copy-btn" aria-label="Copy git config --global --edit command" data-copy="git config --global --edit">⧉ Copy</button>
+          </div>
+          <div class="cmd-title-row">
+            <span class="cmd-icon">⚙️</span>
+            <h3 class="cmd-name">git config --global --edit</h3>
+          </div>
+          <p class="cmd-desc">سوف يدخل ال vim. اضغط i لتجربة إدخال البيانات، أدخل البيانات التي تريدها، ثم اضغط :wq! للخروج من هذا الوضع.</p>
+          <pre class="cmd-code"><code><span class="c-cmd">git config --global --edit</span></code></pre>
+        </div>
+        
         <div class="cmd-card reveal" data-category="Setup" data-cmd="git clone">
           <div class="cmd-card-header">
             <span class="cmd-cat-badge" style="--cat-clr:#10b981">Setup</span>
