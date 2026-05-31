@@ -772,6 +772,120 @@
     </div>
   </section>
 
+  <!-- ===== GENERATE & TEST SSH KEYS SECTION ===== -->
+  <section id="ssh-keys" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Security & Authentication</span>
+        <h2 class="section-title">Generate & Test <span class="gradient-text">GitHub SSH Keys</span></h2>
+        <p class="section-desc">Securely connect your local machine to GitHub without typing your password every time.</p>
+      </div>
+      
+      <div class="ssh-grid">
+        <!-- 1. Why SSH Keys are Used -->
+        <div class="ssh-card reveal" data-category="Security">
+          <div class="card-header">
+            <span class="card-badge" style="--cat-clr:#10b981">Why SSH?</span>
+          </div>
+          <h3 class="card-title">Why SSH Keys are Used</h3>
+          <ul class="card-list">
+            <li><strong>Problem with HTTPS:</strong> Requires a personal access token (or password) every time you push or pull.</li>
+            <li><strong>Benefits of SSH:</strong> Uses cryptographic keys for secure, passwordless authentication.</li>
+          </ul>
+        </div>
+
+        <!-- 2. SSH Key Pair -->
+        <div class="ssh-card reveal" data-category="Security">
+          <div class="card-header">
+            <span class="card-badge" style="--cat-clr:#3b82f6">Key Pair</span>
+          </div>
+          <h3 class="card-title">SSH Key Pair</h3>
+          <p>SSH uses two linked keys:</p>
+          <ul class="card-list mt-2">
+            <li><strong>Private Key <code>(id_rsa)</code>:</strong> Stays on your machine. <span class="text-danger font-semibold">NEVER share this.</span></li>
+            <li><strong>Public Key <code>(id_rsa.pub)</code>:</strong> Uploaded safely to GitHub.</li>
+          </ul>
+        </div>
+
+        <!-- 3. Generate SSH Key -->
+        <div class="ssh-card reveal" style="grid-column: 1 / -1;" data-category="Security">
+          <div class="card-header">
+            <span class="card-badge" style="--cat-clr:#8b5cf6">Generate Key</span>
+          </div>
+          <h3 class="card-title">Generate SSH Key</h3>
+          <p class="mb-4">Run the following command in your terminal, replacing the email with your GitHub email:</p>
+          
+          <div class="ssh-code-wrapper">
+            <pre class="cmd-code"><code><span class="c-cmd">ssh-keygen</span> -t rsa -b 4096 -C <span class="c-str">"your_email@example.com"</span></code></pre>
+            <button class="copy-btn ssh-copy" aria-label="Copy ssh-keygen command" data-copy='ssh-keygen -t rsa -b 4096 -C "your_email@example.com"'>⧉ Copy</button>
+          </div>
+          
+          <div class="ssh-explanation mt-4">
+            <p><strong>Explanation:</strong></p>
+            <ul class="card-list">
+              <li><code>ssh-keygen</code>: The key-generation program.</li>
+              <li><code>-t rsa</code>: Specifies the RSA algorithm.</li>
+              <li><code>-b 4096</code>: Specifies a strong 4096-bit key size.</li>
+              <li><code>-C "email"</code>: Adds a label (comment) to identify the key.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 4. Passphrase -->
+        <div class="ssh-card reveal" data-category="Security">
+          <div class="card-header">
+            <span class="card-badge" style="--cat-clr:#f59e0b">Passphrase</span>
+          </div>
+          <h3 class="card-title">Optional Passphrase</h3>
+          <p>When prompted, you can enter an optional passphrase for extra security. If someone steals your laptop, they still need the passphrase to use the key.</p>
+        </div>
+
+        <!-- 5. Add Public Key to GitHub -->
+        <div class="ssh-card reveal" data-category="Security">
+          <div class="card-header">
+            <span class="card-badge" style="--cat-clr:#ec4899">Add to GitHub</span>
+          </div>
+          <h3 class="card-title">Add Public Key to GitHub</h3>
+          <ol class="card-list">
+            <li>Copy the contents of <code>~/.ssh/id_rsa.pub</code></li>
+            <li>Go to GitHub ➔ <strong>Settings</strong></li>
+            <li>Click <strong>SSH and GPG keys</strong></li>
+            <li>Click <strong>New SSH key</strong> and paste the contents.</li>
+          </ol>
+        </div>
+
+        <!-- 6. Test Authentication -->
+        <div class="ssh-card reveal" style="grid-column: 1 / -1;" data-category="Security">
+          <div class="card-header">
+            <span class="card-badge" style="--cat-clr:#00f5ff">Test Connection</span>
+          </div>
+          <h3 class="card-title">Test Authentication</h3>
+          <p class="mb-4">Verify that your key is correctly set up and recognized by GitHub.</p>
+          
+          <div class="ssh-code-wrapper mb-4">
+            <pre class="cmd-code"><code><span class="c-cmd">ssh</span> -T git@github.com</code></pre>
+            <button class="copy-btn ssh-copy" aria-label="Copy ssh test command" data-copy="ssh -T git@github.com">⧉ Copy</button>
+          </div>
+
+          <p><strong>Expected Output:</strong></p>
+          <div class="terminal-window ssh-term mt-2">
+            <div class="terminal-titlebar">
+              <div class="term-dots">
+                <span class="td td-red"></span><span class="td td-yellow"></span><span class="td td-green"></span>
+              </div>
+              <span class="term-title">bash — ssh-test</span>
+            </div>
+            <div class="terminal-body" style="height: auto; padding: 16px;">
+              <div class="term-line"><span class="term-cyan">$ ssh -T git@github.com</span></div>
+              <div class="term-line term-white mt-2">Hi username! You've successfully authenticated, but GitHub does not provide shell access.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ===== FOOTER ===== -->
   <footer class="site-footer">
     <div class="footer-glow" aria-hidden="true"></div>

@@ -1306,6 +1306,120 @@ button {
 }
 
 /* =========================================
+   13.5 SSH Keys Section (Generate & Test)
+   ========================================= */
+.ssh-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.ssh-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.ssh-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.ssh-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--border);
+  transition: var(--transition);
+}
+
+.ssh-card:hover::before {
+  background: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan);
+}
+
+.ssh-card .card-header {
+  margin-bottom: 16px;
+}
+
+.ssh-card .card-badge {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: var(--cat-clr);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+
+.ssh-card .card-title {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+  color: var(--text-main);
+}
+
+.ssh-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+
+.ssh-card .card-list {
+  list-style: disc;
+  margin-left: 20px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.ssh-card .card-list li {
+  margin-bottom: 6px;
+}
+
+.ssh-card code {
+  font-family: var(--font-mono);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 4px;
+  border-radius: 4px;
+  color: var(--text-main);
+}
+
+.text-danger {
+  color: var(--red);
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.ssh-code-wrapper {
+  position: relative;
+}
+
+.ssh-copy {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(255,255,255,0.1);
+}
+
+.ssh-term {
+  margin-bottom: 0;
+}
+
+/* =========================================
+
    14. Footer
    ========================================= */
 .site-footer {
