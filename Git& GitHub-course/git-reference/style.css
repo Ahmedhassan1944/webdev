@@ -1419,6 +1419,342 @@ button {
 }
 
 /* =========================================
+   13.8 Pull Request Deep Dive Section
+   ========================================= */
+.pr-section {
+  margin-bottom: 40px;
+}
+.pr-section-title {
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+  color: var(--text-main);
+  text-align: center;
+}
+
+/* 1 & 2. Intro Cards */
+.pr-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+@media (max-width: 768px) {
+  .pr-intro-grid { grid-template-columns: 1fr; }
+}
+.pr-intro-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px;
+  position: relative;
+  transition: var(--transition);
+}
+.pr-intro-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+.pr-intro-card.highlight-card {
+  border-color: rgba(139, 92, 246, 0.3);
+}
+.pr-intro-card.highlight-card:hover {
+  border-color: var(--highlight-clr);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+}
+.pr-intro-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.pr-intro-card .card-icon {
+  font-size: 1.5rem;
+}
+.pr-intro-card p {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.pr-intro-card .card-list {
+  margin-top: 16px;
+  padding-left: 20px;
+  list-style: disc;
+  color: var(--text-muted);
+}
+.pr-intro-card .card-list li { margin-bottom: 8px; }
+
+/* PR Name Logic */
+.pr-name-logic {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+.logic-step {
+  padding: 8px 16px;
+  background: var(--bg-card);
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  font-size: 0.95rem;
+  width: 100%;
+}
+.logic-focus {
+  border-color: var(--highlight-clr);
+  color: #fff;
+  background: rgba(139, 92, 246, 0.1);
+}
+.logic-arrow {
+  color: var(--text-muted);
+  font-size: 1.2rem;
+}
+.logic-summary {
+  font-style: italic;
+  text-align: center;
+  color: var(--cyan);
+}
+
+/* 3. Workflow Timeline */
+.pr-workflow-timeline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px 24px;
+  overflow-x: auto;
+}
+.pr-wt-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  z-index: 2;
+  min-width: 80px;
+}
+.wt-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  transition: var(--transition);
+}
+.wt-text {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-align: center;
+  font-weight: 500;
+}
+.wt-connector {
+  flex-grow: 1;
+  height: 2px;
+  background: var(--border);
+  min-width: 20px;
+  margin: -30px 10px 0;
+}
+.pr-wt-step:hover .wt-icon {
+  border-color: var(--cyan);
+  transform: scale(1.1);
+}
+.pulse-step .wt-icon {
+  border-color: var(--purple);
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
+  animation: pulse 2s infinite;
+}
+.finish-step .wt-icon {
+  border-color: var(--green);
+  background: rgba(16, 185, 129, 0.1);
+}
+
+/* 4. Comparison Table */
+.pr-table-wrapper {
+  overflow-x: auto;
+}
+.pr-comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.pr-comparison-table th, .pr-comparison-table td {
+  padding: 16px 24px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.pr-comparison-table th {
+  background: rgba(255, 255, 255, 0.02);
+  font-weight: 600;
+  color: var(--text-main);
+}
+.pr-comparison-table td {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+.pr-comparison-table tr:last-child td {
+  border-bottom: none;
+}
+.pr-comparison-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+.table-icon { margin-right: 8px; }
+
+/* 5 & 6. Scenario Grid */
+.pr-scenario-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+@media (max-width: 768px) {
+  .pr-scenario-grid { grid-template-columns: 1fr; }
+}
+.scenario-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.s-step {
+  padding: 12px 16px;
+  background: var(--bg-card);
+  border-left: 3px solid var(--border);
+  border-radius: 0 8px 8px 0;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: var(--transition);
+}
+.s-step:hover {
+  background: rgba(255,255,255,0.03);
+  transform: translateX(4px);
+}
+.s-step strong { color: var(--text-main); }
+.s-avatar { font-size: 1.2rem; }
+.s-step.s-review { border-left-color: var(--yellow); }
+.s-step.s-approve { border-left-color: var(--green); }
+.s-step.s-merge { border-left-color: var(--purple); }
+
+/* 7. Flowchart */
+.pr-flowchart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  background: var(--bg-card);
+  padding: 40px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+.fc-node {
+  padding: 12px 20px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-align: center;
+}
+.fc-arrow {
+  color: var(--text-muted);
+  font-size: 1.2rem;
+}
+.fc-draft { border-color: #666; }
+.fc-open { border-color: var(--green); color: var(--green); }
+.fc-review { border-color: var(--yellow); }
+.fc-approve { border-color: var(--green); background: rgba(16, 185, 129, 0.1); }
+.fc-merge { border-color: var(--purple); background: rgba(139, 92, 246, 0.1); color: #fff; }
+.fc-branch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+}
+.fc-req { border-color: var(--red); color: var(--red); }
+.fc-update { border-color: var(--cyan); }
+
+/* 8. Terminology Grid */
+.pr-term-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+.term-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  transition: var(--transition);
+}
+.term-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--cyan);
+  box-shadow: 0 4px 15px rgba(0, 245, 255, 0.1);
+}
+.term-card h4 {
+  font-size: 1.1rem;
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+.term-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* 9 & 10. Best Practices & Mistakes */
+.pr-dos-donts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+@media (max-width: 768px) {
+  .pr-dos-donts { grid-template-columns: 1fr; }
+}
+.pr-practices {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px;
+}
+.text-success { color: var(--green); }
+.text-danger { color: var(--red); }
+.practice-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.practice-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  padding: 12px;
+  background: rgba(255,255,255,0.02);
+  border-radius: 8px;
+  transition: var(--transition);
+}
+.practice-list.list-success li:hover { background: rgba(16, 185, 129, 0.05); }
+.practice-list.list-danger li:hover { background: rgba(239, 68, 68, 0.05); }
+.practice-list strong { color: var(--text-main); }
+.p-icon { font-size: 1.2rem; line-height: 1.2; }
+
+/* =========================================
 
    14. Footer
    ========================================= */

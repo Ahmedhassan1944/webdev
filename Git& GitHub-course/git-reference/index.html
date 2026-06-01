@@ -38,6 +38,7 @@
         <li><a href="#workflow" class="nav-link">Workflow</a></li>
         <li><a href="#concepts" class="nav-link">Concepts</a></li>
         <li><a href="#practice" class="nav-link">Practice</a></li>
+        <li><a href="#pull-requests" class="nav-link">Pull Requests</a></li>
       </ul>
       <button id="theme-toggle" class="theme-btn" aria-label="Toggle dark/light mode" title="Toggle theme">🌙</button>
     </div>
@@ -883,6 +884,309 @@
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <!-- ===== PULL REQUEST DEEP DIVE SECTION ===== -->
+  <section id="pull-requests" class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Advanced Collaboration</span>
+        <h2 class="section-title">Pull Request <span class="gradient-text">Deep Dive</span></h2>
+        <p class="section-desc">Master the core mechanism of GitHub collaboration, from your first PR to advanced code review workflows.</p>
+      </div>
+
+      <!-- 1. What is a Pull Request -->
+      <div class="pr-intro-grid">
+        <div class="pr-intro-card reveal">
+          <div class="card-icon" style="--icon-clr:#3b82f6">🤔</div>
+          <h3>What is a Pull Request?</h3>
+          <p>A Pull Request (PR) is a dedicated forum for discussing proposed changes to a repository before they are integrated into the main codebase.</p>
+          <ul class="card-list">
+            <li><strong>Purpose:</strong> To notify team members that you have completed a feature or fixed a bug.</li>
+            <li><strong>Why they exist:</strong> They provide a safety net for code review, automated testing, and discussion.</li>
+            <li><strong>Real-world workflow:</strong> No one pushes directly to <code>main</code>. Developers branch off, do work, and open a PR to merge back safely.</li>
+          </ul>
+        </div>
+
+        <!-- 2. Why is it called Pull Request -->
+        <div class="pr-intro-card reveal highlight-card" style="--highlight-clr:#8b5cf6">
+          <div class="card-icon" style="--icon-clr:#8b5cf6">💡</div>
+          <h3>Why is it called a "Pull Request"?</h3>
+          <p>Many beginners wonder why it's not called a <em>Push Request</em> since you are pushing code to GitHub.</p>
+          <div class="pr-name-logic mt-4">
+            <div class="logic-step"><strong>1.</strong> You create code and push it to your <em>own</em> branch.</div>
+            <div class="logic-arrow">↓</div>
+            <div class="logic-step logic-focus"><strong>2.</strong> You <em>request</em> the project maintainer to <strong>PULL</strong> your changes into the main branch.</div>
+          </div>
+          <p class="mt-4 logic-summary">"Hey maintainer, I've pushed my code. Here is a <strong>request</strong> for you to <strong>pull</strong> it into the official project."</p>
+        </div>
+      </div>
+
+      <!-- 3. Pull Request Workflow Timeline -->
+      <div class="pr-section mt-12 reveal">
+        <h3 class="pr-section-title">The Pull Request Workflow</h3>
+        <div class="pr-workflow-timeline">
+          <div class="pr-wt-step">
+            <div class="wt-icon">🌿</div>
+            <div class="wt-text">Create Branch</div>
+          </div>
+          <div class="wt-connector"></div>
+          <div class="pr-wt-step">
+            <div class="wt-icon">💻</div>
+            <div class="wt-text">Write Code</div>
+          </div>
+          <div class="wt-connector"></div>
+          <div class="pr-wt-step">
+            <div class="wt-icon">💾</div>
+            <div class="wt-text">Commit</div>
+          </div>
+          <div class="wt-connector"></div>
+          <div class="pr-wt-step">
+            <div class="wt-icon">⬆️</div>
+            <div class="wt-text">Push</div>
+          </div>
+          <div class="wt-connector"></div>
+          <div class="pr-wt-step pulse-step">
+            <div class="wt-icon">🔄</div>
+            <div class="wt-text">Open PR</div>
+          </div>
+          <div class="wt-connector"></div>
+          <div class="pr-wt-step">
+            <div class="wt-icon">👀</div>
+            <div class="wt-text">Code Review</div>
+          </div>
+          <div class="wt-connector"></div>
+          <div class="pr-wt-step">
+            <div class="wt-icon">✅</div>
+            <div class="wt-text">Approve</div>
+          </div>
+          <div class="wt-connector"></div>
+          <div class="pr-wt-step finish-step">
+            <div class="wt-icon">🔀</div>
+            <div class="wt-text">Merge to Main</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Push vs Pull Request -->
+      <div class="pr-section mt-12 reveal">
+        <h3 class="pr-section-title">Git Push vs Pull Request</h3>
+        <div class="pr-table-wrapper">
+          <table class="pr-comparison-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th><span class="table-icon">⬆️</span> Git Push</th>
+                <th><span class="table-icon">🔄</span> Pull Request</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Purpose</strong></td>
+                <td>Uploads commits to remote server</td>
+                <td>Proposes merging a branch into another</td>
+              </tr>
+              <tr>
+                <td><strong>Who performs it?</strong></td>
+                <td>The developer writing the code</td>
+                <td>Developer (opens), Maintainer (merges)</td>
+              </tr>
+              <tr>
+                <td><strong>Code Review?</strong></td>
+                <td>❌ No, it's instant</td>
+                <td>✅ Yes, team can comment line-by-line</td>
+              </tr>
+              <tr>
+                <td><strong>Approval Required?</strong></td>
+                <td>❌ No</td>
+                <td>✅ Yes (usually configured)</td>
+              </tr>
+              <tr>
+                <td><strong>Affects Main Branch?</strong></td>
+                <td>✅ Yes (if pushing to main)</td>
+                <td>✅ Yes (but safely, after review)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 5. Real Example & 6. Commands -->
+      <div class="pr-scenario-grid mt-12">
+        <div class="pr-scenario-content reveal">
+          <h3 class="pr-section-title">Real-World Scenario</h3>
+          <div class="scenario-steps">
+            <div class="s-step"><span class="s-avatar">👨‍💻</span> <strong>Ahmed</strong> creates a <code>feature-login</code> branch.</div>
+            <div class="s-step"><span class="s-avatar">👨‍💻</span> <strong>Ahmed</strong> writes the login code and commits changes.</div>
+            <div class="s-step"><span class="s-avatar">👨‍💻</span> <strong>Ahmed</strong> pushes the branch to GitHub.</div>
+            <div class="s-step"><span class="s-avatar">👨‍💻</span> <strong>Ahmed</strong> opens a Pull Request on GitHub UI.</div>
+            <div class="s-step s-review"><span class="s-avatar">👩‍🔧</span> <strong>Admin</strong> reviews the code, suggests a typo fix.</div>
+            <div class="s-step"><span class="s-avatar">👨‍💻</span> <strong>Ahmed</strong> fixes the typo and pushes again (PR updates automatically).</div>
+            <div class="s-step s-approve"><span class="s-avatar">👩‍🔧</span> <strong>Admin</strong> approves the PR.</div>
+            <div class="s-step s-merge"><span class="s-avatar">👩‍🔧</span> <strong>Admin</strong> clicks "Merge pull request".</div>
+          </div>
+        </div>
+        
+        <div class="pr-scenario-code reveal">
+          <h3 class="pr-section-title">Commands Used</h3>
+          <div class="ssh-code-wrapper mb-4">
+            <pre class="cmd-code"><code><span class="c-cmt"># 1. Create and switch to branch</span>
+<span class="c-cmd">git checkout</span> -b feature-login
+
+<span class="c-cmt"># 2. Stage changes</span>
+<span class="c-cmd">git add</span> .
+
+<span class="c-cmt"># 3. Commit changes</span>
+<span class="c-cmd">git commit</span> -m <span class="c-str">"Add login page"</span>
+
+<span class="c-cmt"># 4. Push branch to GitHub</span>
+<span class="c-cmd">git push</span> -u origin feature-login</code></pre>
+            <button class="copy-btn ssh-copy" aria-label="Copy scenario commands" data-copy='git checkout -b feature-login&#10;git add .&#10;git commit -m "Add login page"&#10;git push -u origin feature-login'>⧉ Copy</button>
+          </div>
+          <p class="text-muted text-sm">After the final push, GitHub will automatically show a "Compare & pull request" button on the repository page!</p>
+        </div>
+      </div>
+
+      <!-- 7. Pull Request Lifecycle -->
+      <div class="pr-section mt-12 reveal">
+        <h3 class="pr-section-title">Pull Request Lifecycle Flowchart</h3>
+        <div class="pr-flowchart">
+          <div class="fc-node fc-draft">Draft PR</div>
+          <div class="fc-arrow">➔</div>
+          <div class="fc-node fc-open">Open PR</div>
+          <div class="fc-arrow">➔</div>
+          <div class="fc-node fc-review">Review</div>
+          
+          <div class="fc-branch fc-changes">
+            <div class="fc-arrow fc-down">⬎</div>
+            <div class="fc-node fc-req">Changes Requested</div>
+            <div class="fc-arrow">➔</div>
+            <div class="fc-node fc-update">Update & Push</div>
+            <div class="fc-arrow fc-up">⬏</div>
+          </div>
+          
+          <div class="fc-arrow fc-main-path">➔</div>
+          <div class="fc-node fc-approve">Approved</div>
+          <div class="fc-arrow">➔</div>
+          <div class="fc-node fc-merge">Merged & Closed</div>
+        </div>
+      </div>
+
+      <!-- 8. Terminology -->
+      <div class="pr-section mt-12 reveal">
+        <h3 class="pr-section-title">Common Terminology</h3>
+        <div class="pr-term-grid">
+          <div class="term-card">
+            <h4>Repository</h4>
+            <p>The project folder containing all files and Git history.</p>
+          </div>
+          <div class="term-card">
+            <h4>Fork</h4>
+            <p>A personal copy of someone else's repository on your GitHub account.</p>
+          </div>
+          <div class="term-card">
+            <h4>Branch</h4>
+            <p>A parallel version of the codebase to isolate your work.</p>
+          </div>
+          <div class="term-card">
+            <h4>Merge</h4>
+            <p>Combining the changes from your PR branch into the main branch.</p>
+          </div>
+          <div class="term-card">
+            <h4>Reviewer</h4>
+            <p>A team member who inspects your code for bugs or style issues.</p>
+          </div>
+          <div class="term-card">
+            <h4>Maintainer</h4>
+            <p>The person with write access who can actually click the "Merge" button.</p>
+          </div>
+          <div class="term-card">
+            <h4>Merge Conflict</h4>
+            <p>When two branches changed the exact same line of code differently.</p>
+          </div>
+          <div class="term-card">
+            <h4>Code Review</h4>
+            <p>The process of examining proposed code before it gets merged.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9 & 10. Best Practices & Mistakes -->
+      <div class="pr-dos-donts mt-12">
+        <div class="pr-practices reveal">
+          <h3 class="pr-section-title text-success">✅ Best Practices</h3>
+          <ul class="practice-list list-success">
+            <li>
+              <span class="p-icon">✅</span>
+              <div>
+                <strong>Keep PRs Small:</strong> Easier and faster to review.
+              </div>
+            </li>
+            <li>
+              <span class="p-icon">✅</span>
+              <div>
+                <strong>Clear Titles:</strong> "Fix login bug" instead of "Update code".
+              </div>
+            </li>
+            <li>
+              <span class="p-icon">✅</span>
+              <div>
+                <strong>Detailed Description:</strong> Explain *what* changed and *why*.
+              </div>
+            </li>
+            <li>
+              <span class="p-icon">✅</span>
+              <div>
+                <strong>One Feature Per PR:</strong> Don't mix UI changes with database refactoring.
+              </div>
+            </li>
+            <li>
+              <span class="p-icon">✅</span>
+              <div>
+                <strong>Test Before Opening:</strong> Ensure your code actually runs locally.
+              </div>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="pr-practices reveal">
+          <h3 class="pr-section-title text-danger">❌ Common Mistakes</h3>
+          <ul class="practice-list list-danger">
+            <li>
+              <span class="p-icon">❌</span>
+              <div>
+                <strong>Huge PRs:</strong> 50+ changed files are a reviewer's nightmare.
+              </div>
+            </li>
+            <li>
+              <span class="p-icon">❌</span>
+              <div>
+                <strong>Merging Without Review:</strong> Defeats the entire purpose of a PR.
+              </div>
+            </li>
+            <li>
+              <span class="p-icon">❌</span>
+              <div>
+                <strong>Vague Titles:</strong> Avoid titles like "stuff", "updates", or "fixed it".
+              </div>
+            </li>
+            <li>
+              <span class="p-icon">❌</span>
+              <div>
+                <strong>Ignoring Comments:</strong> Always address reviewer feedback.
+              </div>
+            </li>
+            <li>
+              <span class="p-icon">❌</span>
+              <div>
+                <strong>Out of Sync:</strong> Forgetting to pull latest `main` before opening PR.
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
     </div>
   </section>
 
