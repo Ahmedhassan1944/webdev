@@ -39,6 +39,7 @@
         <li><a href="#concepts" class="nav-link">Concepts</a></li>
         <li><a href="#practice" class="nav-link">Practice</a></li>
         <li><a href="#pull-requests" class="nav-link">Pull Requests</a></li>
+        <li><a href="#git-aliases" class="nav-link">Git Aliases</a></li>
       </ul>
       <button id="theme-toggle" class="theme-btn" aria-label="Toggle dark/light mode" title="Toggle theme">🌙</button>
     </div>
@@ -1185,6 +1186,203 @@
             </li>
           </ul>
         </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== GIT ALIASES SECTION ===== -->
+  <section id="git-aliases" class="section section-alt">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="section-tag">Productivity Hacks</span>
+        <h2 class="section-title">Git <span class="gradient-text">Aliases</span></h2>
+        <p class="section-desc">Speed up your workflow with short, memorable shortcuts for the commands you use most.</p>
+      </div>
+
+      <div class="ga-card reveal">
+        <h3 class="ga-card-title">What is a Git Alias?</h3>
+        <p class="ga-card-text">
+          An alias is a user-defined shortcut that expands to a longer Git command (or series of commands).  
+          It lives in your global <code>~/.gitconfig</code> and is invoked exactly like any native Git sub-command.
+        </p>
+      </div>
+
+      <div class="ga-card reveal">
+        <h3 class="ga-card-title">Why do they exist?</h3>
+        <p class="ga-card-text">
+          Because you spend a lot of time typing the same long commands. An alias removes friction, reduces
+          mental overhead and makes your workflow feel <em>instant</em>.
+        </p>
+      </div>
+
+      <div class="ga-card reveal">
+        <h3 class="ga-card-title">Benefits of using aliases</h3>
+        <ul class="ga-benefits">
+          <li>🚀 Faster command entry</li>
+          <li>🔁 Consistency across machines (when shared via dotfiles)</li>
+          <li>📚 Self-documenting shortcuts (e.g. <code>git cm</code> = “commit-message”)</li>
+          <li>⚡️ Less typing → fewer typos</li>
+        </ul>
+      </div>
+
+      <div class="ga-card reveal">
+        <h3 class="ga-card-title">Alias syntax</h3>
+        <p class="ga-card-text">
+          <code>git config --global alias.&lt;newAlias&gt; "&lt;command&gt;"</code>
+        </p>
+        <div class="ga-syntax-breakdown">
+          <div class="syntax-part"><strong>git config</strong> – Git's configuration tool</div>
+          <div class="syntax-part"><strong>--global</strong> – store it for the whole user</div>
+          <div class="syntax-part"><strong>alias.&lt;newAlias&gt;</strong> – the shortcut name</div>
+          <div class="syntax-part"><strong>"&lt;command&gt;"</strong> – the full command to run</div>
+        </div>
+      </div>
+
+      <div class="ga-timeline reveal">
+        <div class="ga-tl-step">
+          <div class="ga-tl-icon">⚙️</div>
+          <div class="ga-tl-label">Run <code>git config</code></div>
+        </div>
+        <div class="ga-tl-connector"></div>
+        <div class="ga-tl-step">
+          <div class="ga-tl-icon">🌍</div>
+          <div class="ga-tl-label">Add <code>--global</code></div>
+        </div>
+        <div class="ga-tl-connector"></div>
+        <div class="ga-tl-step">
+          <div class="ga-tl-icon">🔤</div>
+          <div class="ga-tl-label">Define <code>alias.cm</code></div>
+        </div>
+        <div class="ga-tl-connector"></div>
+        <div class="ga-tl-step">
+          <div class="ga-tl-icon">🖊️</div>
+          <div class="ga-tl-label">Command <code>"commit -m"</code></div>
+        </div>
+      </div>
+
+      <div class="ga-examples-grid reveal">
+        <div class="ga-example">
+          <h4>Define a few common aliases</h4>
+          <pre class="cmd-code"><code><span class="c-cmt"># commit with a message</span>
+<span class="c-cmd">git config --global alias.cm "commit -m"</span>
+
+<span class="c-cmt"># short status</span>
+<span class="c-cmd">git config --global alias.st status</span>
+
+<span class="c-cmt"># branch overview</span>
+<span class="c-cmd">git config --global alias.br branch</span>
+
+<span class="c-cmt"># checkout a branch (exchange)</span>
+<span class="c-cmd">git config --global alias.exchange checkout</span></code></pre>
+          <button class="copy-btn ga-copy" aria-label="Copy alias definitions"
+            data-copy='git config --global alias.cm "commit -m"
+git config --global alias.st status
+git config --global alias.br branch
+git config --global alias.exchange checkout'>⧉ Copy</button>
+        </div>
+
+        <div class="ga-example">
+          <h4>Using them</h4>
+          <pre class="cmd-code"><code><span class="c-cmt"># Commit</span>
+<span class="c-cmd">git cm "Initial commit"</span>
+
+<span class="c-cmt"># Status</span>
+<span class="c-cmd">git st</span>
+
+<span class="c-cmt"># List branches</span>
+<span class="c-cmd">git br</span>
+
+<span class="c-cmt"># Checkout a feature branch</span>
+<span class="c-cmd">git exchange feature/login</span></code></pre>
+          <button class="copy-btn ga-copy" aria-label="Copy usage examples"
+            data-copy='git cm "Initial commit"
+git st
+git br
+git exchange feature/login'>⧉ Copy</button>
+        </div>
+      </div>
+
+      <div class="ga-demo reveal">
+        <h3 class="ga-section-title">Try it yourself</h3>
+        <form id="ga-demo-form" style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:12px;">
+          <input type="text" name="alias" placeholder="alias (e.g. ci)" required
+                 style="padding:10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-main);color:var(--text-main);flex:1;min-width:150px;">
+          <input type="text" name="command" placeholder="full command (e.g. commit -m)" required
+                 style="padding:10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-main);color:var(--text-main);flex:2;min-width:200px;">
+          <button type="submit" class="theme-btn" style="padding:10px 20px;">Generate</button>
+        </form>
+        <div style="position:relative;">
+          <pre class="cmd-code" id="ga-demo-output" style="margin-top:0; min-height: 48px; display:flex; align-items:center; color:var(--text-muted);"><i>Your command will appear here...</i></pre>
+          <button class="copy-btn ga-copy" aria-label="Copy generated alias"
+                  data-copy="" style="display:none; top: 12px; right: 12px;">⧉ Copy</button>
+        </div>
+      </div>
+
+      <div class="ga-comparison reveal">
+        <h3 class="ga-section-title">Before ↔ After</h3>
+        <div class="pr-table-wrapper">
+          <table class="ga-comparison-table">
+            <thead>
+              <tr><th>Scenario</th><th>Without alias</th><th>With alias</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Commit with a message</td><td><code>git commit -m "…"</code></td><td><code>git cm "…"</code></td></tr>
+              <tr><td>Check status</td><td><code>git status</code></td><td><code>git st</code></td></tr>
+              <tr><td>List branches</td><td><code>git branch</code></td><td><code>git br</code></td></tr>
+              <tr><td>Switch branch</td><td><code>git checkout feature/login</code></td><td><code>git exchange feature/login</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="ga-card-grid reveal">
+        <h3 class="ga-section-title" style="grid-column: 1 / -1;">Most useful Git aliases</h3>
+        <div class="ga-card-item"><strong>cm</strong> – <code>commit -m</code></div>
+        <div class="ga-card-item"><strong>st</strong> – <code>status</code></div>
+        <div class="ga-card-item"><strong>br</strong> – <code>branch</code></div>
+        <div class="ga-card-item"><strong>co</strong> – <code>checkout</code></div>
+        <div class="ga-card-item"><strong>lg</strong> – <code>log --oneline --graph</code></div>
+        <div class="ga-card-item"><strong>unstage</strong> – <code>reset HEAD --</code></div>
+      </div>
+
+      <div class="ga-progress reveal">
+        <h3 class="ga-section-title">Productivity impact</h3>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 68%;"></div>
+        </div>
+        <p class="progress-note">≈ 68% of saved keystrokes when using the top 6 aliases daily.</p>
+      </div>
+
+      <div class="ga-warnings reveal">
+        <h3 class="ga-section-title text-danger">Common mistakes</h3>
+        <ul class="ga-warn-list">
+          <li>❌ Forgetting quotes around commands that contain spaces.</li>
+          <li>❌ Over-aliasing – turning every command into an alias makes the cheat-sheet unreadable.</li>
+          <li>❌ Using aliases that clash with existing Git sub-commands.</li>
+        </ul>
+      </div>
+
+      <div class="ga-best-practices reveal">
+        <h3 class="ga-section-title text-success">Best practices</h3>
+        <ul class="ga-best-list">
+          <li>✅ Keep aliases short (&lt; 3 characters) and memorable.</li>
+          <li>✅ Prefix with a unique character when in doubt (e.g. <code>gco</code> for checkout).</li>
+          <li>✅ Document them in your README or dotfiles.</li>
+          <li>✅ Group related aliases in a single `gitconfig` section.</li>
+          <li>✅ Test each alias after creation.</li>
+        </ul>
+      </div>
+
+      <div class="ga-workflow reveal">
+        <h3 class="ga-section-title">Professional workflow with aliases</h3>
+        <ol class="ga-wf-steps">
+          <li>🔧 <strong>Setup</strong> – run the "Define a few common aliases" block once per machine.</li>
+          <li>💡 <strong>Daily work</strong> – use <code>git cm</code>, <code>git st</code>, <code>git br</code> throughout the day.</li>
+          <li>🚦 <strong>Review</strong> – run <code>git lg</code> (log graph) before merging.</li>
+          <li>🧹 <strong>Cleanup</strong> – <code>git unstage</code> or <code>git reset</code> via alias.</li>
+        </ol>
       </div>
 
     </div>

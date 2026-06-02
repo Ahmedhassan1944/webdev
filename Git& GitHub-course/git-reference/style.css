@@ -1755,6 +1755,223 @@ button {
 .p-icon { font-size: 1.2rem; line-height: 1.2; }
 
 /* =========================================
+   13.9 Git Aliases Section
+   ========================================= */
+.ga-card,
+.ga-card-grid,
+.ga-example,
+.ga-warnings,
+.ga-best-practices,
+.ga-workflow,
+.ga-progress,
+.ga-comparison,
+.ga-timeline,
+.ga-card-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 32px;
+  transition: var(--transition);
+}
+.ga-card:hover,
+.ga-example:hover,
+.ga-card-grid:hover,
+.ga-warnings:hover,
+.ga-best-practices:hover,
+.ga-workflow:hover,
+.ga-progress:hover,
+.ga-comparison:hover,
+.ga-timeline:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Header inside the section */
+.ga-card-title,
+.ga-section-title {
+  font-size: 1.35rem;
+  margin-bottom: 12px;
+  color: var(--text-main);
+}
+
+/* Benefits list */
+.ga-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.ga-benefits li {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+/* Syntax breakdown */
+.ga-syntax-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+.syntax-part {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+}
+
+/* Timeline component */
+.ga-timeline {
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+}
+.ga-tl-step {
+  text-align: center;
+  padding: 8px;
+}
+.ga-tl-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+  transition: var(--transition);
+}
+.ga-tl-step:hover .ga-tl-icon {
+  border-color: var(--cyan);
+  background: rgba(0,245,255,0.1);
+}
+.ga-tl-connector {
+  flex-grow: 1;
+  height: 2px;
+  background: var(--border);
+}
+
+/* Example grid */
+.ga-examples-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+@media (max-width: 768px) {
+  .ga-examples-grid { grid-template-columns: 1fr; }
+}
+
+/* Copy button */
+.ga-copy {
+  top: 8px;
+  right: 8px;
+}
+
+/* Comparison table */
+.ga-comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.ga-comparison-table th,
+.ga-comparison-table td {
+  padding: 12px 20px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.ga-comparison-table th {
+  background: rgba(255,255,255,0.02);
+  font-weight: 600;
+  color: var(--text-main);
+}
+.ga-comparison-table td {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+.ga-comparison-table tr:last-child td { border-bottom: none; }
+
+/* Card grid for most useful aliases */
+.ga-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 16px;
+}
+.ga-card-item {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+
+/* Progress bar */
+.ga-progress .progress-bar {
+  height: 12px;
+  background: var(--bg-card);
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.ga-progress .progress-fill {
+  height: 100%;
+  background: var(--cyan);
+  width: 0;
+  transition: width 1s ease;
+}
+.ga-progress .progress-note {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* Warnings & best-practice lists */
+.ga-warn-list,
+.ga-best-list {
+  list-style: none;
+  padding: 0;
+}
+.ga-warn-list li,
+.ga-best-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+/* Workflow steps */
+.ga-wf-steps {
+  counter-reset: step;
+  list-style: none;
+  padding: 0;
+}
+.ga-wf-steps li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.ga-wf-steps li::before {
+  counter-increment: step;
+  content: counter(step);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+/* =========================================
 
    14. Footer
    ========================================= */
